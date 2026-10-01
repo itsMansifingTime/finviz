@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NVIDIA revenue gain by customer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main>
+    <nav class="sitenav">
+      <a href="index.html" aria-current="page">NVIDIA revenue by customer</a>
+      <a href="bet.html">The AI bet as a whole</a>
+    </nav>
+
+    <header class="mast">
+      <p class="kicker">NVIDIA fiscal years 2016–2026 · Form 10-K</p>
+      <h1>Data Center is the revenue gain.</h1>
+      <p class="lede" id="lede"></p>
+    </header>
+
+    <section class="stats" id="stats" aria-label="Headline figures"></section>
+
+    <section class="exhibit">
+      <div class="exhibit-main">
+        <div class="exhibit-head">
+          <h2>Revenue by end market</h2>
+          <p>The customer groups NVIDIA reports every year. Dollars are annual revenue, not the change.</p>
+        </div>
+        <div id="market-chart" class="chart"></div>
+        <p class="caption">Source: NVIDIA Form 10-K. FY2016–FY2018 from the FY2018 10-K; FY2019–FY2021 from the FY2021 10-K; FY2022–FY2024 from the FY2024 10-K; FY2024–FY2026 from the FY2026 10-K. OEM was “OEM &amp; IP” through FY2018.</p>
+      </div>
+      <aside class="gain" id="gain">
+        <div class="exhibit-head">
+          <h2>What created the gain</h2>
+          <p>Change in each market from the year you pick through FY2026.</p>
+        </div>
+        <div class="baselines" id="baselines" role="group" aria-label="Baseline fiscal year"></div>
+        <p class="gain-summary" id="gain-summary"></p>
+        <div id="gain-chart"></div>
+      </aside>
+    </section>
+
+    <section class="estimates">
+      <div class="exhibit-head">
+        <p class="kicker est-flag">Estimate · NVIDIA does not report this</p>
+        <h2>Who bought the Data Center surge</h2>
+        <p>Estimated Data Center revenue by end customer, the company that actually ends up owning the chips, including purchases made through server makers. Bars are point estimates. The thin lines show the plausible range.</p>
+      </div>
+      <div class="est-grid">
+        <div>
+          <div id="est-chart" class="chart"></div>
+        </div>
+        <aside>
+          <h3>Who added the most, FY2024 to FY2026</h3>
+          <p class="gain-summary" id="est-summary"></p>
+          <div id="est-gain"></div>
+        </aside>
+      </div>
+      <details class="method">
+        <summary>How these were estimated</summary>
+        <ul>
+          <li><strong>Hyperscalers.</strong> Starting points are Bloomberg analyst estimates (Microsoft about 19% of NVIDIA revenue, Meta 9–10%, Amazon 6–7.5%, Alphabet 5.6–7%) and Omdia’s 2024 Hopper unit counts (Microsoft 485,000, Meta 224,000, Amazon 196,000, Google 169,000, Oracle 125,000). These are reconciled to NVIDIA’s statements that large cloud providers were about 50% of Data Center revenue, and that the top five were “a little over 50%” by the January 2026 quarter. This follows Epoch AI’s published methodology.</li>
+          <li><strong>Oracle.</strong> Uses Omdia’s 2024 count, then Oracle’s capex growth (about $11 billion in 2024 to about $35 billion in the year through November 2025) and the Stargate Abilene buildout for OpenAI.</li>
+          <li><strong>CoreWeave.</strong> Capex was $2.9 billion in 2023, $8.7 billion in 2024, and $10.3 billion in 2025, with most of it going to NVIDIA systems.</li>
+          <li><strong>xAI.</strong> Colossus 1 came online in 2024 with about 100,000 H100s, followed by roughly 200,000 GPUs. Colossus 2 was financed in 2025 with a $20 billion GPU-backed raise.</li>
+          <li><strong>China.</strong> China was about 20–25% of Data Center revenue before export controls tightened. H20 sales were $4.6 billion in the April 2025 quarter, and sales then effectively stopped. Customer-headquarters revenue for China was $12.3 billion, $25.0 billion, and $19.7 billion for FY2024–FY2026 across all markets, including gaming.</li>
+          <li><strong>Government AI.</strong> This is NVIDIA’s own “sovereign AI” figure: more than $30 billion in FY2026, more than triple the year before, driven mainly by customers based in Canada, France, the Netherlands, Singapore, and the UK. NVIDIA had earlier said the FY2026 total would be more than double FY2025, which puts FY2025 near $9–10 billion. FY2024 is a rough guess because the category was just emerging. NVIDIA counts these by customer location, so national cloud companies such as Nebius (Netherlands) and Nscale (UK) are likely counted here as well as government-funded supercomputers.</li>
+          <li><strong>Other GPU clouds.</strong> US AI clouds other than CoreWeave, such as Lambda, Crusoe, Together AI, and Applied Digital, plus smaller labs that buy directly. Their spending is mostly private, so this group has a wide range.</li>
+          <li><strong>Tesla.</strong> Elon Musk said Tesla would spend $3–4 billion on NVIDIA hardware in 2024. Tesla finished its 50,000-H100 Cortex cluster in late 2024 and guided to more than $5 billion of AI-related capex in 2025, about two-thirds of which goes to NVIDIA hardware for training clusters.</li>
+          <li><strong>Enterprise &amp; other</strong> is whatever remains after everything above: banks, drugmakers, carmakers, telecom companies, national labs and universities, and smaller internet companies, mostly buying through Dell, HPE, Lenovo, and Supermicro. Because it is a remainder, it carries the errors of every other estimate, and its range is the widest.</li>
+          <li><strong>OpenAI and Anthropic</strong> mostly rent NVIDIA capacity from Microsoft, Oracle, CoreWeave, Amazon, and Google, so their demand is counted inside those companies.</li>
+          <li>Estimates are rounded shares applied to reported Data Center revenue. Treat any single figure as uncertain by several billion dollars.</li>
+        </ul>
+      </details>
+    </section>
+
+    <section class="split">
+      <div>
+        <div class="exhibit-head">
+          <h2>Direct customers at or above 10%</h2>
+          <p>NVIDIA names a customer only in rare cases, and otherwise prints a rounded share once it crosses about 10%. These bars are not the same buyers tracked over time.</p>
+        </div>
+        <div id="customer-chart" class="chart"></div>
+        <p class="caption">Implied dollars equal the printed percentage times that year’s revenue. The filing rounds the percentage, so the dollars are approximate. Dell is the only customer named in this span. Everyone under 10% is undisclosed.</p>
+      </div>
+      <div>
+        <div class="exhibit-head">
+          <h2>Where the invoice is addressed</h2>
+          <p>Headquarters of the direct customer, for the three years NVIDIA has recast onto this basis. This is who is billed, which is often not who runs the GPUs.</p>
+        </div>
+        <div id="geo-chart"></div>
+        <p class="caption">Source: FY2026 Form 10-K, which recast FY2024 and FY2025 onto customer headquarters. United States headquarters rose from $31.5 billion to $149.6 billion. China-headquartered customers peaked in FY2025, then fell $5.4 billion in FY2026. NVIDIA estimates that 76% of FY2026 Data Center revenue from Taiwan-headquartered customers was for end customers in the United States and Europe.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="exhibit-head">
+        <h2>Annual figures</h2>
+        <p>Millions of dollars, as printed. Totals are the reported company totals.</p>
+      </div>
+      <div class="table-wrap">
+        <table id="table"></table>
+      </div>
+    </section>
+
+    <footer>
+      <p>NVIDIA does not publish a complete revenue history by named customer. Direct customers include cloud providers, system integrators, distributors, OEMs, and AI model makers. Indirect customers buy through those channels. In the FY2026 10-K, NVIDIA said one AI research and deployment company contributed a meaningful amount of revenue by purchasing cloud services from NVIDIA’s customers, and did not name it.</p>
+      <p>Inside Data Center, from FY2024 to FY2026, compute rose by $123.4 billion and networking by $22.8 billion (FY2026 10-K).</p>
+    </footer>
+  </main>
+  <div id="tip" class="tip" hidden></div>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The AI bet, sized and stress-tested</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main>
+    <nav class="sitenav">
+      <a href="index.html">NVIDIA revenue by customer</a>
+      <a href="bet.html" aria-current="page">The AI bet as a whole</a>
+    </nav>
+
+    <header class="mast">
+      <p class="kicker">Company filings and calls through Q2 2026 · 2026 is guidance</p>
+      <h1>The AI bet is nearly $1 trillion a year.</h1>
+      <p class="lede" id="lede"></p>
+    </header>
+
+    <section class="stats" id="stats" aria-label="Headline figures"></section>
+
+    <section class="exhibit">
+      <div class="exhibit-main">
+        <div class="exhibit-head">
+          <h2>Capital spending by the AI builders</h2>
+          <p>Cash spent on data centers, chips, and power each calendar year. 2026 is each company's own guidance.</p>
+        </div>
+        <div id="capex-chart" class="chart"></div>
+        <p class="caption">Source: 10-K and 10-Q filings, Q2 2026 calls. Microsoft, Amazon, and Meta include finance leases. Oracle uses its fiscal year ending the following May (2026 = FY2027 gross guidance, of which up to $70B is net cash). SpaceX / xAI 2024–2025 are estimates; 2026 extrapolates its H1 AI spending. Amazon and Meta figures include some non-AI spending.</p>
+      </div>
+      <aside>
+        <div class="exhibit-head">
+          <h2>Against the economy</h2>
+          <p>Annual spending as a share of US GDP, at peak or typical pace.</p>
+        </div>
+        <div id="gdp-chart" class="chart"></div>
+        <p class="caption">Historical shares from Brookings, Capital Group, and Federal Reserve research; estimates for 1800s railroads vary from about 2% to 6% at peak. AI share uses the total for the seven builders over estimated US nominal GDP of $31.6 trillion.</p>
+      </aside>
+    </section>
+
+    <section class="block">
+      <div class="exhibit-head">
+        <h2>The bet already signed</h2>
+        <p>Annual spending understates the commitment. These obligations are already in contracts and footnotes, and most run into the 2030s.</p>
+      </div>
+      <div id="commit-chart"></div>
+      <p class="caption">Backlog and leases are summed from each company's latest filing (quarter ends June–August 2026). Backlog is what customers owe the builders; leases are what the builders owe landlords. They are separate sides of the ledger, so the bars are not added together.</p>
+    </section>
+
+    <section class="block">
+      <p class="kicker"><span class="est-flag">Model · change the assumptions</span></p>
+      <div class="exhibit-head">
+        <h2>Can AI revenue pay for it?</h2>
+        <p>How much revenue the 2023–2026 build would need each year to cover wear-out, running costs, and a normal return, compared with what AI sells today.</p>
+      </div>
+      <div class="model-grid">
+        <div class="controls" id="controls"></div>
+        <div>
+          <div id="gap-chart" class="chart"></div>
+          <p class="gap-summary" id="gap-summary"></p>
+        </div>
+      </div>
+      <details class="method">
+        <summary>How the model works</summary>
+        <ul>
+          <li>Starts from the seven builders' capital spending in 2023–2026, multiplied by the share you set as AI-related.</li>
+          <li>Each year it has to recover <strong>wear-out</strong>: the chip and server share spread over the chip life you choose, the buildings and power share over 20 years.</li>
+          <li>It also has to earn the <strong>return</strong> you set on the full amount invested, which is what a lender or shareholder expects.</li>
+          <li>Electricity, staff, and other <strong>running costs</strong> take the share of revenue you set. Required revenue = (wear-out + return) ÷ (1 − running-cost share).</li>
+          <li>AI revenue today counts OpenAI and Anthropic run rates plus Microsoft and AWS AI run rates. These overlap, because lab payments to clouds are counted twice, so the true figure is lower. It excludes AI's effect on Google and Meta advertising, which is real but not reported separately.</li>
+          <li>Run rates annualize the latest month or quarter. Recognized revenue for 2025 was far lower: $13.1B at OpenAI and about $4.6B at Anthropic.</li>
+        </ul>
+      </details>
+    </section>
+
+    <section class="block">
+      <div class="exhibit-head">
+        <h2>Who owes whom</h2>
+        <p>The two leading labs have committed about $1 trillion to the companies building for them. Several of those builders are also their investors.</p>
+      </div>
+      <div class="split-even">
+        <div id="flow-chart" class="chart"></div>
+        <div class="circle-notes">
+          <h3>Money that goes in a circle</h3>
+          <ul>
+            <li><strong>Microsoft</strong> owns about 27% of OpenAI, and OpenAI was 45% of Microsoft's backlog in December 2025.</li>
+            <li><strong>Amazon</strong> invested in Anthropic and lends it up to $20B, which Anthropic draws as Amazon delivers capacity Anthropic is paying for.</li>
+            <li><strong>Alphabet</strong> owns a stake in Anthropic and sells it TPUs and cloud capacity.</li>
+            <li><strong>NVIDIA</strong> invested in OpenAI, xAI, and CoreWeave, and agreed to buy up to $6.3B of CoreWeave capacity no one else takes.</li>
+          </ul>
+          <p class="caption">Contract values from company filings and Anthropic's prospectus. Oracle and CoreWeave amounts tied to OpenAI are analyst estimates.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="exhibit-head">
+        <h2>Risk depends on what each company wants</h2>
+        <p>The same dollar of spending is safer when it is paid in cash, rented to many customers, and backed by a business that does not need AI to work. Scores run from 1 (low risk) to 5 (high).</p>
+      </div>
+      <div id="risk-matrix" class="table-wrap"></div>
+      <div id="risk-cards" class="cards"></div>
+      <details class="method">
+        <summary>What the four scores mean</summary>
+        <ul>
+          <li><strong>Funding strain:</strong> how far capex exceeds operating cash, and how fast debt and off-balance-sheet leases are growing.</li>
+          <li><strong>Unproven revenue:</strong> how much of the payback is still a forecast rather than revenue already arriving.</li>
+          <li><strong>Customer concentration:</strong> how much depends on one or two customers, usually OpenAI or Anthropic.</li>
+          <li><strong>Weak fallback:</strong> what happens to the capacity and the company if AI demand disappoints. A cloud with thousands of customers can re-rent it; a company with no other business cannot.</li>
+          <li>Scores are judgment calls based on the facts on each card, not a formula.</li>
+        </ul>
+      </details>
+    </section>
+
+    <section class="block">
+      <div class="exhibit-head">
+        <h2>Three ways it could go</h2>
+        <p>The weak link is not the richest builders. It is whether the labs grow revenue fast enough to pay their fixed commitments.</p>
+      </div>
+      <div class="scenarios" id="scenarios"></div>
+    </section>
+
+    <footer>
+      <p>Figures are in US dollars from company 10-K, 10-Q, and S-1 filings, earnings calls, and reporting by Reuters, Bloomberg, The Information, and S&amp;P through September 2026. Estimates are labeled. Not investment advice.</p>
+      <p><a href="index.html">See NVIDIA's revenue by customer →</a></p>
+    </footer>
+  </main>
+  <div class="tip" id="tip" hidden></div>
+  <script src="bet-data.js"></script>
+  <script src="bet.js"></script>
+</body>
+</html>
